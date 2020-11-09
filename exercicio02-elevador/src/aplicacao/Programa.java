@@ -43,8 +43,7 @@ public class Programa {
 		} while(sair == false);
 		System.out.println("---Programa Encerrado---");
 		sc.close();
-		
-		}
+	}
 	
 	public static void menu() {
 		System.out.println();
@@ -99,7 +98,7 @@ public class Programa {
 		if (listaElevadores.isEmpty() == true) {
 			System.out.println("\nNão existe elevador cadastrado.\n");
 		} else {
-			consultaId();
+			consultarId();
 			
 			for (Elevador elevador: listaElevadores) {
 				if (idElevador == elevador.getIdElevador()) {
@@ -137,7 +136,7 @@ public class Programa {
 		if (listaElevadores.isEmpty() == true) {
 			System.out.println("\nNão existe elevador cadastrado.\n");
 		} else {
-			consultaId();
+			consultarId();
 			
 			for (Elevador elevador: listaElevadores) {
 				if (idElevador == elevador.getIdElevador()) {
@@ -147,7 +146,7 @@ public class Programa {
 						break;
 					} else {
 						System.out.println("Não prioritário. Deseja priorizá-lo? (s/n)\n"
-											+ "AVISO: Este será o único elevador prioritário.\n");
+									+ "AVISO: Este será o único elevador prioritário.\n");
 					}
 					char confirmacao = sc.next().charAt(0);
 					if (confirmacao == 's' || confirmacao == 'S') {
@@ -155,7 +154,7 @@ public class Programa {
 							elevadorPrioridade.desativarPrioridade();
 						}
 						elevador.ativarPrioridade();
-						System.out.println("\nO elevador " + elevador.getIdElevador() + " foi definido como Prioritário.\n");
+						System.out.println("\nO elevador " + elevador.getIdElevador() + " foi definido como prioritário.\n");
 						break;
 					}
 				} 
@@ -166,7 +165,7 @@ public class Programa {
 	public static void solicitar() {
 		System.out.println("---Solicitar---\n");
 		
-		if(consultaLigado() == false) {
+		if(consultarLigado() == false) {
 			System.out.println("\nERRO: Não existe elevador ligado.\n");
 		} else {
 			System.out.print("Em qual andar você está? ");
@@ -175,9 +174,7 @@ public class Programa {
 			int andarDestino = sc.nextInt();
 		
 			Elevador elevadorSolicitado = calcularMenorEsforco(andarAtualPessoa);
-			System.out.println("\nO elevador " 
-								+ elevadorSolicitado.getIdElevador()
-								+ " irá atender à sua solicitação.\n");
+			System.out.println("\nO elevador " + elevadorSolicitado.getIdElevador() + " irá atender à sua solicitação.\n");
 		
 			elevadorSolicitado.setAndarAtual(andarAtualPessoa);
 			System.out.println("\nO elevador chegou ao " + elevadorSolicitado.getAndarAtual() + "º andar. Pode entrar.\n");
@@ -208,12 +205,11 @@ public class Programa {
 					menorEsforcoElevador = elevador;
 				} 
 			}
-
 		}
 		return menorEsforcoElevador;
 	}
 	
-	public static void consultaId() {
+	public static void consultarId() {
 		do {
 			System.out.print("Digite o ID do elevador: ");
 			idElevador = sc.nextInt();
@@ -234,7 +230,7 @@ public class Programa {
 		idValido = false; 
 	}
 	
-	public static boolean consultaLigado() {
+	public static boolean consultarLigado() {
 		boolean ligado = false;
 		for(Elevador elevador : listaElevadores) {
 			if(elevador.isLigado() == true) {
