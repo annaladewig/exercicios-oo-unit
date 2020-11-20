@@ -76,7 +76,6 @@ public class Programa {
 
 		System.out.println("---Programa Finalizado---");
 		sc.close();
-
 	}
 
 	public static void menu() {
