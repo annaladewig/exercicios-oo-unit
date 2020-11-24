@@ -45,16 +45,8 @@ public class Carrinho {
 		return valorIcms;
 	}
 
-	public void setValorIcms(float valorIcms) {
-		this.valorIcms = valorIcms;
-	}
-
 	public float getValorVenda() {
 		return valorVenda;
-	}
-
-	public void setValorVenda(float valorVenda) {
-		this.valorVenda = valorVenda;
 	}
 
 	public int getNumDeItens() {
